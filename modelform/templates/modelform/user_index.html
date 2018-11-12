@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户{{ user.username }}的主页</title>
+    <style>
+        ul li{
+            list-style-type:none
+        }
+    </style>
+</head>
+<body>
+    {% load static  %}
+    <ul>
+        <li>
+            <img src="{{ login_user.get_portrait_url }}" width="100"/>
+        </li>
+        <li>用户名：{{ user.username}} </li>
+        <li>昵称：{{ user.nickname}} </li>
+        <br/>
+        <br/>
+        <br/>
+        <li>
+            <a href="{% url 'modelform:user_logout' %}">退出登录</a>
+        </li>
+    </ul>
+</body>
+</html>

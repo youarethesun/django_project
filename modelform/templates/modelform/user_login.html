@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+</head>
+<body>
+    <form action="{% url 'modelform:user_login' %}"  method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="登录" />
+        <p>
+            没有账号？去<a href="{% url 'modelform:user_register' %}">注册</a>
+        </p>
+    </form>
+{% if error_message %}
+<p> {{ error_message }} </p>
+{% endif %}
+<p> {{ form.errors }}</p>
+</body>
+</html>

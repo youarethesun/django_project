@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul li{list-style-type:none}
+    </style>
+</head>
+<body>
+    <form action="{% url 'polls:show_forms' %}" method="post">
+        {% csrf_token %}
+         <label>账号：</label> <input type="text" name="username" />
+        <br/>
+        <label>密码：</label> <input type="password" name="password" />
+        <br/>
+        <input type="submit" value="提交" />
+        <br/>
+        <ul>
+        {{ form.as_ul}}
+        </ul>
+        <input type="submit" value="提交" />
+          <br/>
+        <br/>
+        <label for="{{ form.username.id_for_label}}">账号：</label>{{ form.username}}
+        <br/>
+        <label for="{{ form.password.id_for_label }}">密码：</label>{{ form.password }}
+        <br/>
+        <input type="submit" value="提交" />
+    </form>
+    <div>
+            {# form.errors 会显示所有未通过验证的表单项以及未通过的原因，由于语言问题。一般不在页面使用此种方式 #}
+            {{ form.errors }}
+    </div>
+</body>
+</html>
+
+
+

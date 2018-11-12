@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+</head>
+<body>
+    <form action="{% url 'modelform:user_register' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <input type="submit" value="注册" />
+    </form>
+<p>已有账号，去<a href="{% url 'modelform:user_login' %}">登录</a></p>
+</body>
+</html>
